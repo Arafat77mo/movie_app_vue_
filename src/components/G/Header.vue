@@ -12,10 +12,10 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dashboard
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark ">
-            <li><router-link class="dropdown-item nav-link" to="/create/movie"> All Movie</router-link></li>
+          <ul class="dropdown-menu dropdown-menu-light ">
+            <li><router-link class="dropdown-item nav-link" to="/movie"> All Movie</router-link></li>
             <li><router-link class="dropdown-item nav-link" to="/users"> All Users</router-link></li>
-            <li><router-link class="dropdown-item nav-link" to=""> All Catogery</router-link></li>
+            <li><router-link class="dropdown-item nav-link" to="/category"> All Catogery</router-link></li>
           </ul>
         </li>
                   <li class="nav-item">

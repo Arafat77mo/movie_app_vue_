@@ -1,8 +1,9 @@
 <template>
     <div class=" d-flex  justify-content-center ">
+
         <div class="col-sm-5 box">
             <form @submit.prevent="submit">
-                <h3>Create Movie</h3>
+                <h3>Add Movie</h3>
                 <div class="form-group">
                     <label>Title</label>
                     <input type="text" v-model="title" name="title" class="form-control form-control-lg" />
@@ -30,9 +31,11 @@
                 </div>
                 
 
-                <button type="submit" class="btn btn-dark btn-lg btn-block">Create User</button>
+                <button type="submit" class="btn btn-dark btn-lg btn-block">Add Movie</button>
 
             </form>
+            <router-link to="/movie" class="btn m-btn col-7  m-btn--hover-brand btn-success text-white m-3 ">Go To Movies</router-link>
+
         </div>
     </div>
 </template>
@@ -95,27 +98,16 @@ export default {
         alert('please fill the filed');
       } else {
         const formdata = new FormData();
-        formdata.append('image', image.value);
-        await axios.post(
-          'http://localhost:8000/', formdata
-         
+        formdata.set('image', image.value);
+        formdata.set('title', title.value);
+        formdata.set('description', description.value);
+        formdata.set('rate', rate.value);
+        formdata.set('category_id', category_id.value);
 
-        ).then(resp => {
-           image = resp.data.image
-           let data = {
-            title: title.value,
-            description: description.value,
-            rate: rate.value,
-            category_id: category_id.value,
-            image: image.value,
-             
-           }
-        
-           axios.post('auth/store', data)
-        })
+        axios.post('auth/store',formdata)
         .then(() => {
           router.push({
-            name: '/create/movie',
+            name: '/movie',
           });
         })
         .catch((error) => {

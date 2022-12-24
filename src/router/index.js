@@ -6,6 +6,10 @@ import dasgoboardView from  '../views/DashboardView.vue'
 import UsersVue from '../views/UsersVue'
 import AddUser from '../views/AddUserView' 
 import CreateMovie from '../views/CreateMovieView'
+import Movie from '../views/ViewMovie'
+import UpdateCaregory from '../views/UpdateCaregory'
+import CreateCategory from '../views/CreateCategory.vue'
+import Category from '../views/ViewCategory.vue'
 
 function guardMyroute(to, from, next)
 {
@@ -69,7 +73,35 @@ const routes = [
     beforeEnter : guardMyroute,
 
     component:CreateMovie
-  }
+  },
+  {
+    path: '/movie',
+    name: 'ViewMovie',
+    beforeEnter : guardMyroute,
+
+    component:Movie
+  },
+  {
+    path: '/update/category/:id',
+    name: 'UpdateCategory',
+    beforeEnter : guardMyroute,
+
+    component:UpdateCaregory
+  },
+  {
+    path: '/create/category',
+    name: 'CreateCategory',
+    beforeEnter : guardMyroute,
+
+    component:CreateCategory
+  },
+  {
+    path: '/category',
+    name: 'ViewCategory',
+    beforeEnter : guardMyroute,
+
+    component:Category
+  },
 
 ]
 
